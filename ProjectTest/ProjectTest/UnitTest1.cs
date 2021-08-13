@@ -13,7 +13,7 @@ namespace ProjectTest
         private readonly By _signInEmailLabel = By.XPath("//input[@id='identifierId']");
 
 
-        private const string _email = "zaraznaya.pochta@gmail.com";
+        private const string _email = "test@gmail.com";
 
         [SetUp]
         public void Setup()
@@ -30,12 +30,22 @@ namespace ProjectTest
             signIn.Click();
 
 
+
             var email = driver.FindElement(_signInEmailLabel);
             email.SendKeys(_email);
 
             var signInContinue = driver.FindElement(_signInContinueButton);
             signInContinue.Click();
+
+
+
             //Assert.Pass();
+        }
+
+       [Test]
+       public void Test2()
+        {
+            driver.Navigate().GoToUrl("https://google.com");
         }
 
         [TearDown]
