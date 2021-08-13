@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "SKxIIG3F89hiO5HzTvX+Ka3QkPlx++fbZsXDnQ1pRzL/DNOvId8+OAvbzdgpfR8L4jaX9Kb2sh6q/lndFGpaxw==",
+  "dgSpecHash": "hfBYNpjwrWg3XjZ7tHMWwRgT7ol8dhCyTk5yrUBXbZ96wKTSCfaOnWLbqHgSq1Gn46B4N+OZMfNcSOA6h3SVkw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\ProjectTest.fsproj",
+  "projectFilePath": "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\ProjectTest.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\anduser\\.nuget\\packages\\fsharp.core\\4.7.0\\fsharp.core.4.7.0.nupkg.sha512",
     "C:\\Users\\anduser\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\anduser\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\anduser\\.nuget\\packages\\microsoft.dotnet.internalabstractions\\1.0.0\\microsoft.dotnet.internalabstractions.1.0.0.nupkg.sha512",

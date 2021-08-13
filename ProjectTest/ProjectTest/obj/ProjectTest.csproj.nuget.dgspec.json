@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\ProjectTest.fsproj": {}
+    "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\ProjectTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\ProjectTest.fsproj": {
+    "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\ProjectTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\ProjectTest.fsproj",
+        "projectUniqueName": "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\ProjectTest.csproj",
         "projectName": "ProjectTest",
-        "projectPath": "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\ProjectTest.fsproj",
+        "projectPath": "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\ProjectTest.csproj",
         "packagesPath": "C:\\Users\\anduser\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\anduser\\Desktop\\AutoTests\\ProjectTest\\ProjectTest\\obj\\",
         "projectStyle": "PackageReference",
@@ -28,30 +28,27 @@
           "netcoreapp3.1": {
             "projectReferences": {}
           }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
         }
       },
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "FSharp.Core": {
-              "target": "Package",
-              "version": "[4.7.0, )",
-              "generatePathProperty": true
-            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.5.0, )",
-              "generatePathProperty": true
+              "version": "[16.5.0, )"
             },
             "NUnit": {
               "target": "Package",
-              "version": "[3.12.0, )",
-              "generatePathProperty": true
+              "version": "[3.12.0, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",
-              "version": "[3.16.1, )",
-              "generatePathProperty": true
+              "version": "[3.16.1, )"
             }
           },
           "imports": [
