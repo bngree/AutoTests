@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System;
 using System.Threading;
 
 namespace ProjectTest
@@ -29,6 +30,7 @@ namespace ProjectTest
             driver = new OpenQA.Selenium.Chrome.ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("https://google.com");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
 
         [Test]
@@ -39,11 +41,9 @@ namespace ProjectTest
 
 
 
-            Thread.Sleep(400);
             var email = driver.FindElement(_signInEmailLabel);
             email.SendKeys(_email);
 
-            Thread.Sleep(400);
             var signInContinue = driver.FindElement(_signInContinueButton);
             signInContinue.Click();
 
