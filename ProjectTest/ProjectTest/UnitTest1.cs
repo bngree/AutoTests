@@ -21,7 +21,6 @@ namespace ProjectTest
         private const string expectedErrorText = "Не удалось войти в аккаунт";
 
         //OpenFirstLink
-        //private readonly By _searchField = By.XPath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input");
         private readonly By _searchField = By.CssSelector(".gLFyf.gsfi");
         private readonly By _secondLink = By.CssSelector(".LC20lb.DKV0Md");
 
@@ -34,6 +33,7 @@ namespace ProjectTest
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("https://google.com");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
         }
 
         [Test]
@@ -50,17 +50,13 @@ namespace ProjectTest
             var signInContinue = driver.FindElement(_signInContinueButton);
             signInContinue.Click();
 
-            Thread.Sleep(600);
+            Thread.Sleep(1000);
             var actualErrorText = driver.FindElement(_errorMessageSpan).Text;
             Assert.AreEqual(expectedErrorText, actualErrorText, "Text is incorrect");
+        }
 
-            
-
-            //Assert.Pass();
-        } 
-
-       [Test]
-       public void OpenFirstLink()
+        [Test]
+        public void OpenFirstLink()
         {
             var searchField = driver.FindElement(_searchField);
             searchField.SendKeys("some test data" + Keys.Enter);
@@ -77,11 +73,24 @@ namespace ProjectTest
 
         }
 
+        [Test]
+        public void Test3()
+        {
+            //открыть любую  2+ вкладку гугл поиска
+        }
+
+        [Test]
+        public void Test4()
+        {
+            //открыть в конце страницы один из подобных запросов
+        }
+
+
         [TearDown]
         public void TearDown()
         {
             Thread.Sleep(600);
-            //driver.Quit();
+            driver.Quit();
         }
     }
 }  
