@@ -8,14 +8,19 @@ namespace ProjectTest
     {
         private IWebDriver driver;
 
+        //TryToLoginGoogle
         private readonly By _signInButton = By.XPath("//a[text()='Войти']");
         private readonly By _signInContinueButton = By.XPath("//span[text()='Далее']");
         private readonly By _signInEmailLabel = By.XPath("//input[@id='identifierId']");
         private readonly By _errorMessageSpan = By.XPath("//h1[@id='headingText']/span");
 
-
         private const string _email = "zaraznaya.pochta@gmail.com";
         private const string expectedErrorText = "Не удалось войти в аккаунт";
+
+        //OpenFirstLink
+        //private readonly By _searchField = By.XPath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input");
+        private readonly By _searchField = By.CssSelector(".gLFyf.gsfi");
+
 
 
         [SetUp]
@@ -27,10 +32,11 @@ namespace ProjectTest
         }
 
         [Test]
-        public void TryToLogin()
+        public void TryToLoginGoogle()
         {
             var signIn = driver.FindElement(_signInButton);
             signIn.Click();
+
 
 
             Thread.Sleep(400);
@@ -48,19 +54,20 @@ namespace ProjectTest
             
 
             //Assert.Pass();
-        }
+        } 
 
        [Test]
-       public void Test2()
+       public void OpenFirstLink()
         {
-            driver.Navigate().GoToUrl("https://google.com");
+            var searchField = driver.FindElement(_searchField);
+            searchField.SendKeys("some test data" + Keys.Enter);
         }
 
         [TearDown]
         public void TearDown()
         {
             Thread.Sleep(600);
-            driver.Quit();
+            //driver.Quit();
         }
     }
-}
+}  
