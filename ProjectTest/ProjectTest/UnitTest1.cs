@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
+using System.Linq;
 using System.Threading;
 
 namespace ProjectTest
@@ -21,6 +23,7 @@ namespace ProjectTest
         //OpenFirstLink
         //private readonly By _searchField = By.XPath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input");
         private readonly By _searchField = By.CssSelector(".gLFyf.gsfi");
+        private readonly By _secondLink = By.CssSelector(".LC20lb.DKV0Md");
 
 
 
@@ -61,6 +64,17 @@ namespace ProjectTest
         {
             var searchField = driver.FindElement(_searchField);
             searchField.SendKeys("some test data" + Keys.Enter);
+
+            var secondLink = driver.FindElements(_secondLink).ElementAt(5);// 1-first, 5-second, 6-third ....
+            Actions actions = new Actions(driver); //move to needed element
+            actions.MoveToElement(secondLink);
+            actions.Perform();
+            var linkName = secondLink.Text;
+
+            secondLink.Click();
+
+            Assert.AreEqual(linkName, driver.Title, "Tab name is incorrect");
+
         }
 
         [TearDown]
