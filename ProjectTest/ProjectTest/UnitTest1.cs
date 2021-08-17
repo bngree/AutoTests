@@ -12,18 +12,23 @@ namespace ProjectTest
         private IWebDriver driver;
 
         //TryToLoginGoogle
-        private readonly By _signInButton = By.XPath("//a[text()='Войти']");
-        private readonly By _signInContinueButton = By.XPath("//span[text()='Далее']");
-        private readonly By _signInEmailLabel = By.XPath("//input[@id='identifierId']");
-        private readonly By _errorMessageSpan = By.XPath("//h1[@id='headingText']/span");
+        public readonly By _signInButton = By.CssSelector(".gb_3.gb_4.gb_9d.gb_3c");//'Login' button
+        public readonly By _signInContinueButton = By.CssSelector(".VfPpkd-vQzf8d");//'Continue' button
+        public readonly By _signInEmailLabel = By.XPath("//input[@id='identifierId']");
+        public readonly By _errorMessageSpan = By.XPath("//h1[@id='headingText']/span");
 
-        private const string _email = "zaraznaya.pochta@gmail.com";
-        private const string expectedErrorText = "Не удалось войти в аккаунт";
+        public const string _email = "zaraznaya.pochta@gmail.com";
+        public const string _expectedErrorText = "Не удалось войти в аккаунт";
 
         //OpenFirstLink
-        private readonly By _searchField = By.CssSelector(".gLFyf.gsfi");
-        private readonly By _secondLink = By.CssSelector(".LC20lb.DKV0Md");
+        public readonly By _searchField = By.CssSelector(".gLFyf.gsfi");
+        public readonly By _tabLink = By.CssSelector(".LC20lb.DKV0Md");
 
+        //OpenSecondSearchTab
+
+
+
+        //OpenLinkedSearches
 
 
         [SetUp]
@@ -52,7 +57,7 @@ namespace ProjectTest
 
             Thread.Sleep(1000);
             var actualErrorText = driver.FindElement(_errorMessageSpan).Text;
-            Assert.AreEqual(expectedErrorText, actualErrorText, "Text is incorrect");
+            Assert.AreEqual(_expectedErrorText, actualErrorText, "Text is incorrect");
         }
 
         [Test]
@@ -61,26 +66,26 @@ namespace ProjectTest
             var searchField = driver.FindElement(_searchField);
             searchField.SendKeys("some test data" + Keys.Enter);
 
-            var secondLink = driver.FindElements(_secondLink).ElementAt(5);// 1-first, 5-second, 6-third ....
+            var tabLink = driver.FindElements(_tabLink).ElementAt(7);// 1-first, 5-second, 6-third ....
             Actions actions = new Actions(driver); //move to needed element
-            actions.MoveToElement(secondLink);
+            actions.MoveToElement(tabLink);
             actions.Perform();
-            var linkName = secondLink.Text;
+            var linkName = tabLink.Text;
 
-            secondLink.Click();
+            tabLink.Click();
 
             Assert.AreEqual(linkName, driver.Title, "Tab name is incorrect");
 
         }
 
         [Test]
-        public void Test3()
+        public void OpenSecondSearchTab()
         {
             //открыть любую  2+ вкладку гугл поиска
         }
 
         [Test]
-        public void Test4()
+        public void OpenLinkedSearches()
         {
             //открыть в конце страницы один из подобных запросов
         }
@@ -90,7 +95,7 @@ namespace ProjectTest
         public void TearDown()
         {
             Thread.Sleep(600);
-            driver.Quit();
+            //driver.Quit();
         }
     }
 }  
