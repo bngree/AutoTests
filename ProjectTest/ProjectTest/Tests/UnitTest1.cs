@@ -45,13 +45,19 @@ namespace ProjectTest
             GoogleSearch
                 .OpenLink(VariablesForTests.linkNum);
             Assert.AreEqual(linkName, GoogleSearch.GetTabName(), "Tab name is incorrect");
-            //StringAssert.Contains(linkName, GoogleSearch.GetTabName(), "Tab name is incorrect");            
+            //StringAssert.Contains(linkName, GoogleSearch.GetTabName(), "Link name is incorrect");            
         }
 
         [Test]
-        public void OpenSecondSearchTab()
+        public void OpenNextSearchTab()
         {
+            var GoogleSearch = new GoogleSearchPageObject(driver);
+            GoogleSearch
+                .Search(VariablesForTests.searchQuery);
             //открыть любую  2+ вкладку гугл поиска
+            GoogleSearch.OpenNextTab(VariablesForTests.tabNum);
+            int currentTab = GoogleSearch.GetCurrentTabNum();
+            Assert.AreEqual(VariablesForTests.tabNum+2, currentTab, "Tab number is not correct");
         }
 
         [Test]
@@ -65,7 +71,7 @@ namespace ProjectTest
         public void TearDown()
         {
             Thread.Sleep(600);
-            driver.Quit();
+            //driver.Quit();
         }
     }
 }  

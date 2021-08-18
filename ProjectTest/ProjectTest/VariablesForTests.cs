@@ -10,5 +10,6 @@ namespace ProjectTest
         public static string email { get; set; } = "zaraznaya.pochta@gmail.com";
         public static string searchQuery { get; set; } = "some test data";
         public static int linkNum { get; set; } = 9; // 1-first, 5-second, 6-third ....
+        public static int tabNum { get; set; } = 5;
     }
 }
