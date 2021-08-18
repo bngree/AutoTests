@@ -8,27 +8,27 @@ namespace ProjectTest.PageObjects
 {
     class GoogleAutorizationPageObject
     {
-        private IWebDriver _webDriver;
+        private IWebDriver driver;
 
-        public readonly By _signInEmailLabel = By.XPath("//input[@id='identifierId']");
-        public readonly By _signInContinueButton = By.CssSelector(".VfPpkd-vQzf8d");//'Continue' button
-        public readonly By _errorMessageSpan = By.XPath("//h1[@id='headingText']/span");
+        public readonly By signInEmailLabelLocator = By.XPath("//input[@id='identifierId']");
+        public readonly By signInContinueButtonLocator = By.CssSelector(".VfPpkd-vQzf8d");//'Continue' button
+        public readonly By errorMessageSpanLocator = By.XPath("//h1[@id='headingText']/span");
 
         public GoogleAutorizationPageObject(IWebDriver webDriver)
         {
-            _webDriver = webDriver;
+            driver = webDriver;
         }
 
         public GoogleAutorizationPageObject TryLogin (string email)
         {
-            _webDriver.FindElement(_signInEmailLabel).SendKeys(email);
-            _webDriver.FindElement(_signInContinueButton).Click();
-            return new GoogleAutorizationPageObject(_webDriver);
+            driver.FindElement(signInEmailLabelLocator).SendKeys(email);
+            driver.FindElement(signInContinueButtonLocator).Click();
+            return new GoogleAutorizationPageObject(driver);
         }
 
         public string GetErrorMessage()
         {
-            string errorMessage = _webDriver.FindElement(_errorMessageSpan).Text;
+            string errorMessage = driver.FindElement(errorMessageSpanLocator).Text;
             return errorMessage;
         }
     }

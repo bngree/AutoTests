@@ -11,5 +11,6 @@ namespace ProjectTest
         public static string searchQuery { get; set; } = "some test data";
         public static int linkNum { get; set; } = 9; // 1-first, 5-second, 6-third ....
         public static int tabNum { get; set; } = 5;
+        public static int relatedSearchesNum { get; set; } = 2;
     }
 }

@@ -54,16 +54,23 @@ namespace ProjectTest
             var GoogleSearch = new GoogleSearchPageObject(driver);
             GoogleSearch
                 .Search(VariablesForTests.searchQuery);
-            //открыть любую  2+ вкладку гугл поиска
             GoogleSearch.OpenNextTab(VariablesForTests.tabNum);
             int currentTab = GoogleSearch.GetCurrentTabNum();
-            Assert.AreEqual(VariablesForTests.tabNum+2, currentTab, "Tab number is not correct");
+            Assert.AreEqual(VariablesForTests.tabNum+2, currentTab, "Tab number is not correct"); //+2 cause we counting from zero + first search tab is not counting
         }
 
         [Test]
         public void OpenLinkedSearches()
         {
             //открыть в конце страницы один из подобных запросов
+            var GoogleSearch = new GoogleSearchPageObject(driver);
+            GoogleSearch
+                .Search(VariablesForTests.searchQuery);
+            string expectedQueueName = GoogleSearch.GetRelatedSearchName(VariablesForTests.relatedSearchesNum);
+            GoogleSearch.OpenRelatedSearchLink(VariablesForTests.relatedSearchesNum);
+            
+            StringAssert.Contains(expectedQueueName.ToLower(), GoogleSearch.GetSearchQueueText().ToLower(), "Link name is incorrect");
+           
         }
 
 
