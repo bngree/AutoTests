@@ -6,9 +6,9 @@ using System;
 using System.Linq;
 using System.Threading;
 
-namespace ProjectTest
+namespace ProjectTest.Tests
 {
-    public class Tests
+    public class GoogleTests
     {
         private IWebDriver driver;
 
@@ -78,7 +78,7 @@ namespace ProjectTest
         public void TearDown()
         {
             Thread.Sleep(600);
-            //driver.Quit();
+            driver.Quit();
         }
     }
 }  
